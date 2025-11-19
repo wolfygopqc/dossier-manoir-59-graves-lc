@@ -313,17 +313,15 @@
         // Gère l'affichage du bouton "Retourner en haut"
         const backToTopButton = document.getElementById("back-to-top-btn");
 
-        window.onscroll = function() {
-            scrollFunction();
-        };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        // Écoute le défilement sur le document
+        document.addEventListener('scroll', () => {
+            // document.documentElement.scrollTop fonctionne sur tous les navigateurs modernes
+            if (document.documentElement.scrollTop > 100) {
                 backToTopButton.style.display = "block";
             } else {
                 backToTopButton.style.display = "none";
             }
-        }
+        });
     </script>
 </body>
 
