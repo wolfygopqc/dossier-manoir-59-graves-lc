@@ -14,6 +14,9 @@
             padding: 0;
             line-height: 1.6;
             scroll-snap-type: y mandatory;
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Standard syntax */
         }
 
         .page-container {
@@ -139,7 +142,7 @@
         #page-intro .dossier-card {
              height: 80vh; 
              display: flex;
-             flex-direction: column;
+             flex-direction: column; 
              justify-content: center;
              text-align: center;
         }
@@ -155,12 +158,12 @@
 
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
     <div class="page-container" id="page-intro">
         <div class="dossier-card">
             <header>
-                <p>FAMILLE GRAVES | POLICE DE LEMOYNE / EX. SHERIFF DE NEW AUSTIN</p>
+                <p>FAMILLE GRAVES | POLICE DE LEMOYNE / EX. SHERIFF DE NEW AUSTIN</p> 
                 <h1>DOSSIER DE REPRISE BIEN IMMOBILIER</h1>
                 <h2>MANOIR 59</h2>
             
@@ -268,38 +271,15 @@
         </div> 
     </div>
 
-
-
-
-
-
-<script>
-    document.addEventListener('contextmenu', function(e) { e.preventDefault(); }); // Blocks right-click menu
-    document.addEventListener('keydown', function(e) { // Blocks keyboard shortcuts
-        if (e.ctrlKey || e.metaKey) {
-            if (e.key === 'c' || e.key === 'v' || e.key === 'x') {
-                e.preventDefault();
+    <script>
+        document.addEventListener('keydown', function(e) { // Blocks keyboard shortcuts
+            if (e.ctrlKey || e.metaKey) {
+                if (['c', 'v', 'x', 'u', 's'].includes(e.key.toLowerCase())) {
+                    e.preventDefault();
+                }
             }
-        }
-    });
-    document.addEventListener('copy', function(e) { e.preventDefault(); }); // Prevents copy event
-    document.addEventListener('paste', function(e) { e.preventDefault(); }); // Prevents paste event
-    document.addEventListener('cut', function(e) { e.preventDefault(); }); // Prevents cut event 
-</script>
-<style>
-    .no-copy {
-        -webkit-user-select: none; /* Safari */
-        user-select: none; /* Modern browsers */
-    }
-</style>
-<input type="text" onpaste="return false;" oncopy="return false;" oncut="return false;" autocomplete="off" />
-
-
-
-
-
-
-
+        });
+    </script>
 </body>
 
 </html>
