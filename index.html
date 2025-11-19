@@ -162,7 +162,8 @@
 
         /* Style pour le bouton "Retourner en haut" */
         #back-to-top-btn {
-            display: none; /* Caché par défaut */
+            opacity: 0;
+            visibility: hidden;
             position: fixed;
             top: 30px;
             right: 30px;
@@ -176,12 +177,18 @@
             cursor: pointer;
             box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
             text-decoration: none;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s, opacity 0.4s, visibility 0.4s;
         }
 
         #back-to-top-btn:hover {
             background-color: #6D4C41;
             color: #F8F4E8;
+        }
+
+        /* Classe pour afficher le bouton */
+        #back-to-top-btn.show {
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </head>
@@ -317,9 +324,9 @@
         document.addEventListener('scroll', () => {
             // document.documentElement.scrollTop fonctionne sur tous les navigateurs modernes
             if (document.documentElement.scrollTop > 100) {
-                backToTopButton.style.display = "block";
+                backToTopButton.classList.add("show");
             } else {
-                backToTopButton.style.display = "none";
+                backToTopButton.classList.remove("show");
             }
         });
     </script>
