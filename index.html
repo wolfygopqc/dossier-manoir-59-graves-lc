@@ -160,6 +160,29 @@
             margin-top: 40px;
         }
 
+        /* Style pour le bouton "Retourner en haut" */
+        #back-to-top-btn {
+            display: none; /* Caché par défaut */
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            background-color: #F8F4E8;
+            color: #3D2D1E;
+            border: 2px solid #6D4C41;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #back-to-top-btn:hover {
+            background-color: #6D4C41;
+            color: #F8F4E8;
+        }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -275,6 +298,9 @@
         </div> 
     </div>
 
+    <!-- Bouton "Retourner en haut" -->
+    <a href="#page-intro" id="back-to-top-btn" title="Retourner en haut">↑</a>
+
     <script>
         document.addEventListener('keydown', function(e) { // Blocks keyboard shortcuts
             if (e.ctrlKey || e.metaKey) {
@@ -283,6 +309,21 @@
                 }
             }
         });
+
+        // Gère l'affichage du bouton "Retourner en haut"
+        const backToTopButton = document.getElementById("back-to-top-btn");
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        }
     </script>
 </body>
 
