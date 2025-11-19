@@ -5,26 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dossier reprise | Manoir 59</title>
     <style>
-        /* CSS corrigé pour éviter les débordements et optimiser le style */
         html {
             scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Georgia', serif;
-            background-color: #CDB48D; /* Papier jauni */
-            color: #3D2D1E; /* Texte brun foncé */
+            background-color: #CDB48D;
+            color: #3D2D1E;
             margin: 0;
             padding: 0;
             line-height: 1.6;
             scroll-snap-type: y mandatory;
-            -webkit-user-select: none; /* Safari */
-            -ms-user-select: none; /* IE 10+ */
-            user-select: none; /* Standard syntax */
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         .page-container {
-            /* Simule une page par section */
             min-height: 100vh; 
             width: 100%;
             display: flex;
@@ -36,15 +34,14 @@
         .dossier-card {
             max-width: 900px;
             width: 85%;
-            box-sizing: border-box; /* Inclusion du padding et border dans la largeur/hauteur */
+            box-sizing: border-box;
             background-color: #F8F4E8;
             padding: 40px 60px;
             margin: 20px auto;
             border: 5px solid #6D4C41; 
-            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2); /* Ombre ajustée */
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
         }
 
-        /* Styles de titre */
         header {
             text-align: center;
             border-bottom: 3px double #3D2D1E;
@@ -76,19 +73,16 @@
             text-transform: uppercase;
         }
 
-        /* Styles du contenu */
         .placeholder {
-            /* Le style pour l'espace à remplir par l'utilisateur */
             border: 2px dashed #B22222; 
             padding: 15px;
             margin: 15px 0;
             background-color: #FDFCEF;
-            text-align: left; /* Texte aligné à gauche pour le contenu */
+            text-align: left;
             font-style: italic;
             color: #3D2D1E;
         }
         
-        /* Les spans (petits champs) dans la page d'intro */
         .placeholder.inline {
              display: inline-block;
              width: auto;
@@ -97,17 +91,16 @@
              text-align: center;
         }
 
-        /* STYLE POUR L'IMAGE DE LA CARTE */
         .map-container {
             margin: 20px 0;
             padding: 10px;
-            border: 3px double #4A3A2F; /* Cadre plus officiel */
+            border: 3px double #4A3A2F;
             background-color: #FDFCEF;
             text-align: center;
         }
         
         .map-container img {
-            width: 100%; /* L'image prend la largeur du conteneur */
+            width: 100%;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -142,7 +135,6 @@
             font-size: 1.2em;
         }
 
-        /* Page de garde spécifique */
         #page-intro .dossier-card {
              height: 80vh; 
              display: flex;
@@ -151,7 +143,6 @@
              text-align: center;
         }
         
-        /* Footer pour la dernière page */
         #page-footer {
             text-align: center;
             padding-top: 20px;
@@ -160,7 +151,6 @@
             margin-top: 40px;
         }
 
-        /* Style pour le bouton "Retourner en haut" */
         #back-to-top-btn {
             opacity: 0;
             visibility: hidden;
@@ -185,7 +175,6 @@
             color: #F8F4E8;
         }
 
-        /* Classe pour afficher le bouton */
         #back-to-top-btn.show {
             opacity: 1;
             visibility: visible;
@@ -305,11 +294,10 @@
         </div> 
     </div>
 
-    <!-- Bouton "Retourner en haut" -->
     <a href="#page-intro" id="back-to-top-btn" title="Retourner en haut">↑</a>
 
     <script>
-        document.addEventListener('keydown', function(e) { // Blocks keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
             if (e.ctrlKey || e.metaKey) {
                 if (['c', 'v', 'x', 'u', 's'].includes(e.key.toLowerCase())) {
                     e.preventDefault();
@@ -317,12 +305,9 @@
             }
         });
 
-        // Gère l'affichage du bouton "Retourner en haut"
         const backToTopButton = document.getElementById("back-to-top-btn");
 
-        // Écoute le défilement sur le document
         document.addEventListener('scroll', () => {
-            // document.documentElement.scrollTop fonctionne sur tous les navigateurs modernes
             if (document.documentElement.scrollTop > 100) {
                 backToTopButton.classList.add("show");
             } else {
