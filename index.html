@@ -268,6 +268,38 @@
         </div> 
     </div>
 
+
+
+
+
+
+<script>
+    document.addEventListener('contextmenu', function(e) { e.preventDefault(); }); // Blocks right-click menu
+    document.addEventListener('keydown', function(e) { // Blocks keyboard shortcuts
+        if (e.ctrlKey || e.metaKey) {
+            if (e.key === 'c' || e.key === 'v' || e.key === 'x') {
+                e.preventDefault();
+            }
+        }
+    });
+    document.addEventListener('copy', function(e) { e.preventDefault(); }); // Prevents copy event
+    document.addEventListener('paste', function(e) { e.preventDefault(); }); // Prevents paste event
+    document.addEventListener('cut', function(e) { e.preventDefault(); }); // Prevents cut event
+</script>
+<style>
+    .no-copy {
+        -webkit-user-select: none; /* Safari */
+        user-select: none; /* Modern browsers */
+    }
+</style>
+<input type="text" onpaste="return false;" oncopy="return false;" oncut="return false;" autocomplete="off" />
+
+
+
+
+
+
+
 </body>
 
 </html>
